@@ -13,9 +13,12 @@ Project - simple task manager API similar to Trello
 ##How to run
 `composer install`
 
-Create env file and set up the sure name, mysql db and mongodb
+Create .env file and set up the name of mysql db and mongodb
 
 `php artisan key:generate`
+
+required need to comment observers in Providers/AppServiceProvider.php
+before running seeders 
 
 `php artisan migrate --seed`
 
@@ -23,9 +26,10 @@ Create env file and set up the sure name, mysql db and mongodb
 
 `php arisan serve`
 
-For asynchronous jobs you need to change 
-`QUEUE_CONNECTION=database in env file`
+For asynchronous jobs you need to set 
+`QUEUE_CONNECTION=database` in .env file
 and run
+
 `php artisan queue:work`
 
 You can import the documentation file in postman public /docs/collection.json or open docs in browser localhost/docs

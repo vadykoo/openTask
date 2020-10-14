@@ -29,6 +29,70 @@ paths:
             responses: {  }
             tags:
                 - Endpoints
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    description: 'The value must be a valid email address.'
+                                    example: hettinger.carolyne@example.com
+                                password:
+                                    type: string
+                                    description: ''
+                                    example: voluptatem
+                            required:
+                                - email
+                                - password
+            security: []
+    /api/auth/register:
+        post:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Endpoints
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                name:
+                                    type: string
+                                    description: ''
+                                    example: alias
+                                email:
+                                    type: string
+                                    description: 'The value must be a valid email address.'
+                                    example: deichmann@example.net
+                                password:
+                                    type: string
+                                    description: ''
+                                    example: earum
+                            required:
+                                - name
+                                - email
+                                - password
             security: []
     /api/auth/logout:
         post:
@@ -171,7 +235,7 @@ paths:
                                 title:
                                     type: string
                                     description: ''
-                                    example: ab
+                                    example: a
                             required:
                                 - title
             security: []
@@ -247,7 +311,7 @@ paths:
                                 title:
                                     type: string
                                     description: ''
-                                    example: perspiciatis
+                                    example: at
                             required:
                                 - title
             security: []
@@ -341,7 +405,7 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: molestiae
+                                    example: rerum
                             required:
                                 - name
             security: []
@@ -417,7 +481,7 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: enim
+                                    example: quis
                             required:
                                 - name
             security: []
@@ -493,11 +557,11 @@ paths:
                                 status:
                                     type: string
                                     description: 'The value must be one of <code>backlog</code>, <code>development</code>, <code>done</code>, or <code>review</code>.'
-                                    example: done
+                                    example: backlog
                                 labels:
                                     type: array
                                     description: 'The value must be one of <code>big task7</code> or <code>big task</code>.'
-                                    example: 'big task'
+                                    example: 'big task7'
                                     items: { type: string }
             security: []
         post:
@@ -531,24 +595,24 @@ paths:
                                 title:
                                     type: string
                                     description: ''
-                                    example: velit
+                                    example: et
                                 content:
                                     type: string
                                     description: ''
-                                    example: inventore
+                                    example: necessitatibus
                                 status:
                                     type: string
                                     description: 'The value must be one of <code>backlog</code>, <code>development</code>, <code>done</code>, or <code>review</code>.'
-                                    example: backlog
+                                    example: development
                                 labels:
                                     type: array
                                     description: 'The value must be one of <code>1</code> or <code>2</code>.'
-                                    example: '2'
+                                    example: '1'
                                     items: { type: string }
                                 user_id:
                                     type: string
-                                    description: 'The value must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, or <code>11</code>.'
-                                    example: '6'
+                                    description: 'The value must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, <code>11</code>, or <code>13</code>.'
+                                    example: '1'
                                 image:
                                     type: string
                                     format: binary
@@ -628,24 +692,24 @@ paths:
                                 title:
                                     type: string
                                     description: ''
-                                    example: numquam
+                                    example: ut
                                 content:
                                     type: string
                                     description: ''
-                                    example: dolorem
+                                    example: quo
                                 status:
                                     type: string
                                     description: 'The value must be one of <code>backlog</code>, <code>development</code>, <code>done</code>, or <code>review</code>.'
-                                    example: done
+                                    example: development
                                 labels:
                                     type: array
                                     description: 'The value must be one of <code>1</code> or <code>2</code>.'
-                                    example: '2'
+                                    example: '1'
                                     items: { type: string }
                                 user_id:
                                     type: string
-                                    description: 'The value must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, or <code>11</code>.'
-                                    example: '1'
+                                    description: 'The value must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, <code>11</code>, or <code>13</code>.'
+                                    example: '9'
                                 image:
                                     type: string
                                     format: binary

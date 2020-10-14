@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "f686ed90-762a-4bf0-8151-f340e6c99044",
+        "_postman_id": "e6d32d8f-cc17-4924-aee9-6923d04593c1",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -32,7 +32,42 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"hettinger.carolyne@example.com\",\n    \"password\": \"voluptatem\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/auth\/register",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "127.0.0.1:8000",
+                            "path": "api\/auth\/register",
+                            "query": [],
+                            "raw": "http:\/\/127.0.0.1:8000\/api\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"alias\",\n    \"email\": \"deichmann@example.net\",\n    \"password\": \"earum\"\n}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -179,7 +214,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": \"ab\"\n}"
+                            "raw": "{\n    \"title\": \"a\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -240,7 +275,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": \"perspiciatis\"\n}"
+                            "raw": "{\n    \"title\": \"at\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -330,7 +365,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"molestiae\"\n}"
+                            "raw": "{\n    \"name\": \"rerum\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -391,7 +426,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"enim\"\n}"
+                            "raw": "{\n    \"name\": \"quis\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -452,7 +487,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"status\": \"done\",\n    \"labels\": \"big task\"\n}"
+                            "raw": "{\n    \"status\": \"backlog\",\n    \"labels\": \"big task7\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -487,27 +522,27 @@
                             "formdata": [
                                 {
                                     "key": "title",
-                                    "value": "velit",
+                                    "value": "et",
                                     "type": "text"
                                 },
                                 {
                                     "key": "content",
-                                    "value": "inventore",
+                                    "value": "necessitatibus",
                                     "type": "text"
                                 },
                                 {
                                     "key": "status",
-                                    "value": "backlog",
+                                    "value": "development",
                                     "type": "text"
                                 },
                                 {
                                     "key": "labels",
-                                    "value": "2",
+                                    "value": "1",
                                     "type": "text"
                                 },
                                 {
                                     "key": "user_id",
-                                    "value": "6",
+                                    "value": "1",
                                     "type": "text"
                                 },
                                 {
@@ -579,27 +614,27 @@
                             "formdata": [
                                 {
                                     "key": "title",
-                                    "value": "numquam",
+                                    "value": "ut",
                                     "type": "text"
                                 },
                                 {
                                     "key": "content",
-                                    "value": "dolorem",
+                                    "value": "quo",
                                     "type": "text"
                                 },
                                 {
                                     "key": "status",
-                                    "value": "done",
+                                    "value": "development",
                                     "type": "text"
                                 },
                                 {
                                     "key": "labels",
-                                    "value": "2",
+                                    "value": "1",
                                     "type": "text"
                                 },
                                 {
                                     "key": "user_id",
-                                    "value": "1",
+                                    "value": "9",
                                     "type": "text"
                                 },
                                 {

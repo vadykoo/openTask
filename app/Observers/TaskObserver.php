@@ -18,7 +18,7 @@ class TaskObserver
         Log::create([
             'user_id' => auth()->id(),
             'action' => 'created',
-            'original' => $task->getOriginal(),
+            'original' => $task->toArray(),
         ]);
     }
 
@@ -49,7 +49,7 @@ class TaskObserver
         Log::create([
             'user_id' => auth()->id(),
             'action' => 'deleted',
-            'original' => $task->getOriginal(),
+            'original' => $task->toArray(),
         ]);
     }
 
@@ -64,7 +64,7 @@ class TaskObserver
         Log::create([
             'user_id' => auth()->id(),
             'action' => 'restored',
-            'original' => $task->getOriginal(),
+            'original' => $task->toArray(),
         ]);
     }
 
@@ -79,7 +79,7 @@ class TaskObserver
         Log::create([
             'user_id' => auth()->id(),
             'action' => 'forceDeleted',
-            'original' => $task->getOriginal(),
+            'original' => $task->toArray(),
         ]);
     }
 }

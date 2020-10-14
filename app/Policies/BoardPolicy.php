@@ -30,8 +30,7 @@ class BoardPolicy
      */
     public function view(User $user, Board $board)
     {
-        //@todo not only creator
-        return $user->id === $board->created_by;
+        return ($user->id === $board->created_by) or $board->users()->find($user->id) ;
     }
 
     /**

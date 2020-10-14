@@ -9,6 +9,11 @@ use App\Http\Requests\LabelRequest;
 
 class LabelController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Label::class, 'label');
+    }
+
     public function index()
     {
         return LabelResource::collection(Label::paginate());

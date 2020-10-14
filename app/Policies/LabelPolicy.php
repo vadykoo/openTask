@@ -2,14 +2,14 @@
 
 namespace App\Policies;
 
-use App\Models\Task;
+use App\Models\Label;
 use App\Models\User;
-use App\Models\Board;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TaskPolicy
+class LabelPolicy
 {
     use HandlesAuthorization;
+
     /**
      * Determine whether the user can view any models.
      *
@@ -18,20 +18,19 @@ class TaskPolicy
      */
     public function viewAny(User $user)
     {
-        return false;
+        return true;
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Task  $task
+     * @param  \App\Models\Label  $label
      * @return mixed
      */
-    public function view(User $user, Task $task)
+    public function view(User $user, Label $label)
     {
-        if($user->boards()->find($task->board_id))
-            return true;
+        return true;
     }
 
     /**
@@ -40,61 +39,56 @@ class TaskPolicy
      * @param  \App\Models\User  $user
      * @return mixed
      */
-    public function create(User $user, Board $board)
+    public function create(User $user)
     {
-        if($user->boards()->find($board->id))
-            return true;
+        return true;
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Task  $task
+     * @param  \App\Models\Label  $label
      * @return mixed
      */
-    public function update(User $user, Task $task)
+    public function update(User $user, Label $label)
     {
-        if($user->boards()->find($task->board_id))
-            return true;
+        return $user->id === $label->created_by;
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Task  $task
+     * @param  \App\Models\Label  $label
      * @return mixed
      */
-    public function delete(User $user, Task $task)
+    public function delete(User $user, Label $label)
     {
-        if($user->boards()->find($task->board_id))
-            return true;
+        return $user->id === $label->created_by;
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Task  $task
+     * @param  \App\Models\Label  $label
      * @return mixed
      */
-    public function restore(User $user, Task $task)
+    public function restore(User $user, Label $label)
     {
-        if($user->boards()->find($task->board_id))
-            return true;
+        return $user->id === $label->created_by;
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Task  $task
+     * @param  \App\Models\Label  $label
      * @return mixed
      */
-    public function forceDelete(User $user, Task $task)
+    public function forceDelete(User $user, Label $label)
     {
-        if($user->boards()->find($task->board_id))
-            return true;
+        return $user->id === $label->created_by;
     }
 }

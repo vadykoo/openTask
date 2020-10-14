@@ -12,7 +12,9 @@
 curl -X POST \
     "http://127.0.0.1:8000/api/auth/login" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"email":"hettinger.carolyne@example.com","password":"voluptatem"}'
+
 ```
 
 ```javascript
@@ -25,10 +27,15 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "email": "hettinger.carolyne@example.com",
+    "password": "voluptatem"
+}
 
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
@@ -39,6 +46,72 @@ fetch(url, {
 ### Request
 <small class="badge badge-black">POST</small>
  **`api/auth/login`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>email</b></code>&nbsp; <small>string</small>     <br>
+    The value must be a valid email address.
+
+<code><b>password</b></code>&nbsp; <small>string</small>     <br>
+    
+
+
+
+## api/auth/register
+
+
+
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://127.0.0.1:8000/api/auth/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"alias","email":"deichmann@example.net","password":"earum"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://127.0.0.1:8000/api/auth/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "alias",
+    "email": "deichmann@example.net",
+    "password": "earum"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### Request
+<small class="badge badge-black">POST</small>
+ **`api/auth/register`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>name</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>email</b></code>&nbsp; <small>string</small>     <br>
+    The value must be a valid email address.
+
+<code><b>password</b></code>&nbsp; <small>string</small>     <br>
+    
 
 
 
@@ -625,7 +698,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/auth/boards" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"title":"ab"}'
+    -d '{"title":"a"}'
 
 ```
 
@@ -640,7 +713,7 @@ let headers = {
 };
 
 let body = {
-    "title": "ab"
+    "title": "a"
 }
 
 fetch(url, {
@@ -1110,7 +1183,7 @@ curl -X PUT \
     "http://127.0.0.1:8000/api/auth/boards/{board}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"title":"perspiciatis"}'
+    -d '{"title":"at"}'
 
 ```
 
@@ -1125,7 +1198,7 @@ let headers = {
 };
 
 let body = {
-    "title": "perspiciatis"
+    "title": "at"
 }
 
 fetch(url, {
@@ -1294,7 +1367,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/auth/labels" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"molestiae"}'
+    -d '{"name":"rerum"}'
 
 ```
 
@@ -1309,7 +1382,7 @@ let headers = {
 };
 
 let body = {
-    "name": "molestiae"
+    "name": "rerum"
 }
 
 fetch(url, {
@@ -1779,7 +1852,7 @@ curl -X PUT \
     "http://127.0.0.1:8000/api/auth/labels/{label}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"enim"}'
+    -d '{"name":"quis"}'
 
 ```
 
@@ -1794,7 +1867,7 @@ let headers = {
 };
 
 let body = {
-    "name": "enim"
+    "name": "quis"
 }
 
 fetch(url, {
@@ -1874,7 +1947,7 @@ curl -X GET \
     -G "http://127.0.0.1:8000/api/auth/boards/{board}/tasks" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"status":"done","labels":"big task"}'
+    -d '{"status":"backlog","labels":"big task7"}'
 
 ```
 
@@ -1889,8 +1962,8 @@ let headers = {
 };
 
 let body = {
-    "status": "done",
-    "labels": "big task"
+    "status": "backlog",
+    "labels": "big task7"
 }
 
 fetch(url, {
@@ -2322,12 +2395,12 @@ curl -X POST \
     "http://127.0.0.1:8000/api/auth/boards/{board}/tasks" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "title=velit" \
-    -F "content=inventore" \
-    -F "status=backlog" \
-    -F "labels=2" \
-    -F "user_id=6" \
-    -F "image=@E:\OpenServer\userdata\temp\php7E59.tmp" 
+    -F "title=et" \
+    -F "content=necessitatibus" \
+    -F "status=development" \
+    -F "labels=1" \
+    -F "user_id=1" \
+    -F "image=@E:\OpenServer\userdata\temp\php38A6.tmp" 
 ```
 
 ```javascript
@@ -2341,11 +2414,11 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('title', 'velit');
-body.append('content', 'inventore');
-body.append('status', 'backlog');
-body.append('labels', '2');
-body.append('user_id', '6');
+body.append('title', 'et');
+body.append('content', 'necessitatibus');
+body.append('status', 'development');
+body.append('labels', '1');
+body.append('user_id', '1');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
@@ -2377,7 +2450,7 @@ fetch(url, {
     The value must be one of <code>1</code> or <code>2</code>.
 
 <code><b>user_id</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    The value must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, or <code>11</code>.
+    The value must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, <code>11</code>, or <code>13</code>.
 
 <code><b>image</b></code>&nbsp; <small>file</small>         <i>optional</i>    <br>
     The value must be an image.
@@ -2830,12 +2903,12 @@ curl -X PUT \
     "http://127.0.0.1:8000/api/auth/boards/{board}/tasks/{task}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "title=numquam" \
-    -F "content=dolorem" \
-    -F "status=done" \
-    -F "labels=2" \
-    -F "user_id=1" \
-    -F "image=@E:\OpenServer\userdata\temp\php7E99.tmp" 
+    -F "title=ut" \
+    -F "content=quo" \
+    -F "status=development" \
+    -F "labels=1" \
+    -F "user_id=9" \
+    -F "image=@E:\OpenServer\userdata\temp\php3914.tmp" 
 ```
 
 ```javascript
@@ -2849,11 +2922,11 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('title', 'numquam');
-body.append('content', 'dolorem');
-body.append('status', 'done');
-body.append('labels', '2');
-body.append('user_id', '1');
+body.append('title', 'ut');
+body.append('content', 'quo');
+body.append('status', 'development');
+body.append('labels', '1');
+body.append('user_id', '9');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
@@ -2888,7 +2961,7 @@ fetch(url, {
     The value must be one of <code>1</code> or <code>2</code>.
 
 <code><b>user_id</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    The value must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, or <code>11</code>.
+    The value must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, <code>11</code>, or <code>13</code>.
 
 <code><b>image</b></code>&nbsp; <small>file</small>         <i>optional</i>    <br>
     The value must be an image.
